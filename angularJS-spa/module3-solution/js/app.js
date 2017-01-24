@@ -35,8 +35,7 @@
 		function NarrowItDownController(MenuSearchService){
 			var list = this;
 			list.searchTerm = "";
-			list.items = [];
-
+			
 
 			list.isListEmpty = function () {
 	        if (list.items.length > 0) {
