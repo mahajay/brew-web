@@ -1,5 +1,8 @@
+
+<div ng-if="list.isListEmpty()">Nothing found!</div>
+
 <table>
-  <tr ng-repeat="item in list.items">
+	<tr ng-repeat="item in list.items">
     <td>{{ item.short_name }}</td>
     <td>{{ item.description }}</td>
     <td>{{ item.name }}</td>
