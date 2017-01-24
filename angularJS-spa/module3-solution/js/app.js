@@ -77,7 +77,7 @@
 					var responseData = response.data.menu_items;
 					foundItemsArr = checkSearchTerm(response.data.menu_items, searchTerm);
 					deferred.resolve(foundItemsArr);
-					console.log("foundItemsArr - "+foundItemsArr);
+					//console.log("foundItemsArr - "+foundItemsArr);
 				}).catch(function(error){
 				});
 
@@ -95,7 +95,7 @@
 		            	temp_found_items.push(item);
 		              }
 		          }
-		          console.log('temp aray lenght: ', temp_found_items);
+		          //console.log('temp aray lenght: ', temp_found_items);
 		      return temp_found_items;
 		    }
 
