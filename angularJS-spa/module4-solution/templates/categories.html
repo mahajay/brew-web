@@ -1,6 +1,6 @@
 <table>
-  <tr ng-repeat="category in mainCategories.categories">
-    <td ui-sref="items({categoryShortName: {{category.short_name}})">{{ category.short_name }}</td>
+  <tr ng-repeat="category in $ctrl.categories" ui-sref="categoriesCtrl.items({categoryShortName: {{category.short_name}}})">
+    <td >{{ category.short_name }}</td>
     <td>{{ category.name }}</td>
     <td>{{ category.special_instructions }}</td>
   </tr>

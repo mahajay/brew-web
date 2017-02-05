@@ -5,10 +5,9 @@
 		angular.module('MenuApp', [])
 		.controller('ItemsController', ItemsController);
 
-		ItemsController.$inject = ['items'];
-		function ItemsController(items){
-			var itemsController = this;
-			itemsController.items = items;
+		ItemsController.$inject = ['response'];
+		function ItemsController(response){
+			this.items = response.data;
 		}
 	}
 )();
