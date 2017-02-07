@@ -2,12 +2,16 @@
 	function(){
 		'use strict';
 
-		angular.module('MenuApp', [])
+		angular.module('MenuApp')
 		.controller('ItemsController', ItemsController);
 
-		ItemsController.$inject = ['response'];
-		function ItemsController(response){
-			this.items = response.data;
+		ItemsController.$inject = ['MenuDataService', '$stateParams'];
+
+		function ItemsController(MenuDataService, $stateParams){
+			var itemDetails = this;
+			var data = MenuDataService.getItemsForCategory($stateParams.categoryShortName);
+			console.log('data in itemscontroller ',data);
+			itemDetails.items = data.menu_items;
 		}
 	}
 )();

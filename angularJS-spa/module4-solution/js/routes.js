@@ -23,11 +23,10 @@
 			    templateUrl: '../templates/home.template.html'
 			  })
 
-			.state('categories', {
+			.state('categoriesCtrl', {
 					url: '/categories',
 					templateUrl: '../templates/main.categories.html',
-					controller: 'categoriesController',
-					controllerAs: 'categoriesCtrl',
+					controller: 'categoriesController as categoriesCtrl',
 					resolve: {
 						response: ['MenuDataService', function(MenuDataService){
 								var data = MenuDataService.getAllCategories();
@@ -37,13 +36,15 @@
 
 					}
 				)
-			.state('categories.items', {
+			.state('categoriesCtrl.items', {
 					url: '/items/{categoryShortName}',
 					templateUrl: '../templates/item.html',
-					controller: 'ItemsController',
+					controller: 'ItemsController as itemDetails',
 					resolve: {
-						response: ['MenuDataService', function(MenuDataService, $stateParams){
+						response: ['MenuDataService', '$stateParams', function(MenuDataService, $stateParams){
+								console.log("Inside state categoriesCtrl.items ", $stateParams.categoryShortName);
 								var data = MenuDataService.getItemsForCategory($stateParams.categoryShortName);
+								console.log("Got data in state categoriesCtrl.items - ", data);
 								return data;
 							}]
 						}
